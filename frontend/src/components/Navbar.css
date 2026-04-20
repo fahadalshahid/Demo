@@ -66,7 +66,7 @@
   font-size: 0.95rem;
   font-weight: 700;
   color: #111;
-  padding: 0px 20px;
+  padding: 10px 20px;
   border-radius: 12px;
   text-decoration: none;
   position: relative;
@@ -210,8 +210,8 @@
 }
 
 /* ================= RESPONSIVE ================= */
-/* ================= RESPONSIVE ================= */
 @media (min-width: 901px) {
+  /* Force hidden on desktop even if menuOpen state is true */
   .navbar__mobile-menu {
     display: none !important;
   }
@@ -221,15 +221,6 @@
   .container {
     padding: 0 24px; 
   }
-
-  /* Keep logo and burger on the same line */
-  .navbar__inner {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-  }
   
   .navbar__links,
   .navbar__cta {
@@ -237,15 +228,6 @@
   }
 
   .navbar__burger {
-    display: flex; /* Shows the button */
-    flex-direction: column; /* Stacks the two internal spans */
-    margin: 0; /* Prevents auto-centering if it was inherited */
-  }
-
-  /* Ensure logo is visible on dark/light backgrounds */
-  .navbar__logo {
-    display: block;
-    position: relative;
-    z-index: 1301;
+    display: flex;
   }
 }
