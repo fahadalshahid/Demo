@@ -32,12 +32,12 @@
   z-index: 2;
 }
 
-/* Large outlined logo - Font Preserved */
+/* Large outlined logo */
 .footer__logo-massive {
   position: absolute;
   bottom: 34px;
   left: 24px;
-  font-family: 'Bebas Neue', sans-serif; /* Kept Bebas Neue */
+  font-family: 'Bebas Neue', sans-serif;
   font-size: 3.5rem;
   font-weight: 900;
   line-height: 0.85;
@@ -61,9 +61,9 @@
 .footer__pills {
   display: flex;
   gap: 10px;
+  flex-wrap: wrap;
 }
 
-/* Base style for Pills and Icons for the Animation */
 .footer__pills a,
 .footer__social-icon {
   background: #fff;
@@ -94,7 +94,7 @@
   font-size: 1rem;
 }
 
-/* Shared Hover Animation: White -> Orange -> Black */
+/* Hover Animation */
 .footer__pills a::before,
 .footer__social-icon::before {
   content: '';
@@ -103,15 +103,9 @@
   left: 0;
   width: 100%;
   height: 200%;
-  background: linear-gradient(
-    to bottom,
-    #ff7b00 0%,
-    #ff7b00 50%,
-    #000 50%,
-    #000 100%
-  );
+  background: linear-gradient(to bottom, #ff7b00 0%, #ff7b00 50%, #000 50%, #000 100%);
   z-index: -1;
-  transform: translateY(50%); /* Start hidden */
+  transform: translateY(50%);
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -126,13 +120,11 @@
   transform: translateY(-50%);
 }
 
-/* Specific styling for the brand icon (e.g. "B") */
 .footer__social-icon.brand-icon {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 1.1rem;
 }
 
-/* Social Row Labels */
 .footer__social-row {
   display: flex;
   align-items: center;
@@ -146,7 +138,7 @@
   margin-right: 4px;
 }
 
-/* Contact Details Section */
+/* Contact Details */
 .footer__contact-info {
   display: flex;
   flex-direction: column;
@@ -169,11 +161,9 @@
   display: block;
 }
 
-.footer__info-block a:hover {
-  text-decoration: underline;
-}
+.footer__info-block a:hover { text-decoration: underline; }
 
-/* Bottom copyright and small links */
+/* Bottom meta */
 .footer__bottom-meta {
   position: relative;
   z-index: 4;
@@ -186,11 +176,45 @@
   border-top: 1px solid rgba(0, 0, 0, 0.06);
 }
 
-.footer__bottom-meta a {
-  color: #666;
-  text-decoration: none;
+.footer__bottom-meta a { color: #666; text-decoration: none; }
+.footer__bottom-meta a:hover { text-decoration: underline; }
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 900px) {
+  .footer__container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+    padding: 120px 24px 40px;
+  }
+  .footer__logo-massive {
+    font-size: 2.5rem;
+    -webkit-text-stroke: 2.5px #111;
+  }
 }
 
-.footer__bottom-meta a:hover {
-  text-decoration: underline;
+@media (max-width: 600px) {
+  .footer__container {
+    align-items: center;
+    text-align: center;
+    gap: 32px;
+  }
+  .footer__nav-section { align-items: center; }
+  .footer__social-row { justify-content: center; }
+  .footer__contact-info { align-items: center; }
+  .footer__bottom-meta {
+    flex-direction: column;
+    gap: 12px;
+    padding: 14px 24px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 400px) {
+  .footer__logo-massive {
+    font-size: 2rem;
+    -webkit-text-stroke: 2px #111;
+  }
+  .footer__pills a { font-size: 0.9rem; padding: 8px 16px; }
+  .footer__social-icon { width: 32px; height: 32px; }
 }
