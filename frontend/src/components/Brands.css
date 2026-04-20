@@ -1,0 +1,79 @@
+.brands { 
+  padding: 100px 0; 
+  overflow: hidden; 
+  /* Cream background color from image */
+  background-color: #F9F7F2; 
+}
+
+.brands__header-wrap { 
+  margin-bottom: 60px; 
+  text-align: left;
+  padding-left: 6%;
+}
+
+.brands__title { 
+  /* Changed to sans-serif stack */
+  font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
+  /* Very bold and large as per image */
+  font-size: clamp(2.5rem, 7vw, 4.5rem); 
+  font-weight: 900; 
+  line-height: 1.05;
+  /* Tight letter spacing for that modern sans-serif look */
+  letter-spacing: -0.05em;
+  color: #000000; 
+}
+
+.brands__ticker-wrap { 
+  position: relative; 
+  width: 100%;
+}
+
+/* Fades the edges into the cream background */
+.brands__ticker-wrap::before,
+.brands__ticker-wrap::after { 
+  content: ''; 
+  position: absolute; 
+  top: 0; 
+  bottom: 0; 
+  width: 10%; 
+  z-index: 2; 
+  pointer-events: none; 
+}
+.brands__ticker-wrap::before { left: 0; background: linear-gradient(to right, #F9F7F2, transparent); }
+.brands__ticker-wrap::after { right: 0; background: linear-gradient(to left, #F9F7F2, transparent); }
+
+.brands__ticker { 
+  display: flex; 
+  width: max-content; 
+  /* Animation remains continuous */
+  animation: ticker 30s linear infinite; 
+}
+
+/* Force animation to keep running on hover */
+.brands__ticker:hover { 
+  animation-play-state: running !important; 
+}
+
+@keyframes ticker { 
+  0% { transform: translateX(0); } 
+  100% { transform: translateX(-50%); } 
+}
+
+.brands__card { 
+  /* Increased size for the brand boxes */
+  flex: 0 0 340px; 
+  height: 340px; 
+  margin: 0 12px;
+  background-color: #F3F0E9; 
+  border-radius: 24px; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  padding: 40px;
+}
+
+.brands__img { 
+  max-width: 85%; 
+  max-height: 65%; 
+  object-fit: contain;
+}

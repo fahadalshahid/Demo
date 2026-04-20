@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+.footer {
+  background: #f2ede4;
+  position: relative;
+  overflow: hidden;
+  padding: 300px 0 0;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Diagonal darker band */
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 70;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(172deg, transparent 52%, #e5dfd3 52.2%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.footer__container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 200px 40px 40px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 80px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Large outlined logo - Font Preserved */
+.footer__logo-massive {
+  position: absolute;
+  bottom: 34px;
+  left: 24px;
+  font-family: 'Bebas Neue', sans-serif; /* Kept Bebas Neue */
+  font-size: 3.5rem;
+  font-weight: 900;
+  line-height: 0.85;
+  color: transparent;
+  -webkit-text-stroke: 3.5px #111;
+  text-transform: uppercase;
+  letter-spacing: -2px;
+  pointer-events: none;
+  z-index: 3;
+  user-select: none;
+}
+
+/* Nav Pill Buttons */
+.footer__nav-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 28px;
+}
+
+.footer__pills {
+  display: flex;
+  gap: 10px;
+}
+
+/* Base style for Pills and Icons for the Animation */
+.footer__pills a,
+.footer__social-icon {
+  background: #fff;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  color: #111;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+  transition: color 0.4s ease, transform 0.15s;
+}
+
+.footer__pills a {
+  padding: 11px 22px;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.footer__social-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+}
+
+/* Shared Hover Animation: White -> Orange -> Black */
+.footer__pills a::before,
+.footer__social-icon::before {
+  content: '';
+  position: absolute;
+  top: 0; 
+  left: 0;
+  width: 100%;
+  height: 200%;
+  background: linear-gradient(
+    to bottom,
+    #ff7b00 0%,
+    #ff7b00 50%,
+    #000 50%,
+    #000 100%
+  );
+  z-index: -1;
+  transform: translateY(50%); /* Start hidden */
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.footer__pills a:hover,
+.footer__social-icon:hover {
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.footer__pills a:hover::before,
+.footer__social-icon:hover::before {
+  transform: translateY(-50%);
+}
+
+/* Specific styling for the brand icon (e.g. "B") */
+.footer__social-icon.brand-icon {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.1rem;
+}
+
+/* Social Row Labels */
+.footer__social-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.footer__social-row .label {
+  font-weight: 800;
+  font-size: 1rem;
+  color: #111;
+  margin-right: 4px;
+}
+
+/* Contact Details Section */
+.footer__contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.footer__info-block h4 {
+  font-size: 1rem;
+  font-weight: 800;
+  margin-bottom: 6px;
+  color: #111;
+}
+
+.footer__info-block p,
+.footer__info-block a {
+  font-size: 1rem;
+  color: #333;
+  text-decoration: none;
+  line-height: 1.6;
+  display: block;
+}
+
+.footer__info-block a:hover {
+  text-decoration: underline;
+}
+
+/* Bottom copyright and small links */
+.footer__bottom-meta {
+  position: relative;
+  z-index: 4;
+  padding: 14px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+  color: #666;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.footer__bottom-meta a {
+  color: #666;
+  text-decoration: none;
+}
+
+.footer__bottom-meta a:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,166 @@
+.about {
+  padding: clamp(60px, 10vw, 100px) 0; /* Fluid padding */
+  background-color: #f9f6f1;
+  color: #1a1a1a;
+  font-family: sans-serif;
+  overflow: hidden; /* Prevents unwanted horizontal scrolls */
+}
+
+.about__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* 1. Headline: Improved scaling */
+.about__headline {
+  font-size: clamp(1.8rem, 6vw, 3.8rem); /* Slightly smaller on mobile */
+  font-weight: 700;
+  line-height: 1.1;
+  text-align: left;
+  max-width: 950px;
+  margin: 0 0 60px 0; /* Removed 'auto' to keep it left-aligned like a modern grid */
+  letter-spacing: -0.02em;
+}
+
+/* 2. Content Row: Flex with Wrap for Tablet/Mobile */
+.about__content-row {
+  display: flex;
+  flex-wrap: wrap; /* Allows items to drop down on small screens */
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 40px;
+}
+
+/* Left Column: Image scaling */
+.about__col-left {
+  flex: 1 1 280px; /* Grow, Shrink, Basis */
+  max-width: 100%;
+}
+
+.about__portrait {
+  width: 100%; /* Responsive width */
+  max-width: 280px; /* Maintains original size on desktop */
+  height: auto; /* Maintains aspect ratio */
+  aspect-ratio: 280 / 350; /* Ensures container doesn't jump during load */
+  border-radius: 20px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Center Column: Text */
+.about__col-center {
+  flex: 1.5 1 350px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 450px;
+}
+
+.about__body {
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Right Column: Download Button */
+.about__col-right {
+  flex: 1 1 50px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+/* --- BUTTON STYLES --- (No changes needed, already solid) */
+.about__cta-button {
+  display: inline-flex;
+  align-items: center;
+  background: white;
+  border: 1px solid #1a1a1a;
+  border-radius: 12px;
+  padding: 6px 6px 6px 20px;
+  text-decoration: none;
+  color: #1a1a1a;
+  font-weight: 600;
+  width: fit-content;
+  transition: transform 0.3s ease;
+}
+
+.about__cta-icon {
+  background: #1a1a1a;
+  color: white;
+  width: 36px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 12px;
+}
+
+.about__cta-button:hover {
+  transform: rotate(-3deg);
+}
+
+.about__download-btn {
+  width: 50px;
+  height: 50px;
+  background: white;
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.about__download-arrow {
+  font-size: 1.4rem;
+  color: #ff5c35;
+  display: inline-block;
+}
+
+.about__download-btn:hover .about__download-arrow {
+  animation: arrowDropOnce 0.6s ease-in-out forwards;
+}
+
+@keyframes arrowDropOnce {
+  0% { transform: translateY(0); opacity: 1; }
+  30% { transform: translateY(40px); opacity: 1; }
+  31% { transform: translateY(40px); opacity: 0; }
+  32% { transform: translateY(-40px); opacity: 0; }
+  33% { opacity: 1; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+/* --- ENHANCED RESPONSIVE QUERIES --- */
+
+/* For Tablets and Small Laptops */
+@media (max-width: 1024px) {
+  .about__headline {
+    margin-bottom: 40px;
+  }
+  .about__content-row {
+    gap: 30px;
+  }
+}
+
+/* For Mobile: Stack vertically and center-ish */
+@media (max-width: 768px) {
+  .about__content-row {
+    flex-direction: column;
+    align-items: flex-start; /* Keeps the "left-aligned" look from original */
+  }
+
+  .about__col-right {
+    justify-content: flex-start; /* Moves download button under text on mobile */
+    margin-top: 10px;
+  }
+  
+  .about__portrait {
+    max-width: 100%; /* Image can fill width on very small phones if needed */
+    height: 300px; /* Slight height reduction for mobile viewport */
+  }
+}
